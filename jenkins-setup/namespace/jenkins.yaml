@@ -1,0 +1,17 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: jenkins
+  labels:
+    owner: jenkins
+    product: jenkins
+    name: jenkins
+  annotations:
+    owner: karan
+    department: "IT"
+    name: jenkins
+    part-of: assessment-krn
+    version: "1.0"
+    description: "To Create a Namespace"
+    repository: "https://github.com/roorkrn/alraedah-assessment.git"
+    contact: "karanpanjawani7@gmail.com"
