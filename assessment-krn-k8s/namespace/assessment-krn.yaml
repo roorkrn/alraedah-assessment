@@ -1,0 +1,17 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: assessment-krn
+  labels:
+    owner: karan
+    product: node-app
+    name: assessment-krn 
+  annotations:
+    owner: karan
+    department: "IT"
+    name: assessment-krn
+    part-of: assessment-krn
+    version: "1.0"
+    description: "To Create a Namespace"
+    repository: "https://github.com/roorkrn/alraedah-assessment.git"
+    contact: "karanpanjawani7@gmail.com"
