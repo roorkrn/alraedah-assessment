@@ -85,7 +85,7 @@ all the resources mentioned above should exist on the same one namespace, and th
 
   #Get the Jenkins URL
   echo http://127.0.0.1:8080
-  kubectl --namespace jenkins port-forward svc/jenkins-release 8080:8080
+  kubectl --namespace jenkins port-forward svc/jenkins-release 8090:8080
   ```
 - create a pipeline in jenkins that consists of two main stages : 
     - stage 1 : build the sample service docker image and pushes it to dockerhub.
