@@ -35,7 +35,12 @@ Afterwards, you need to install and deploy the following services to your cluste
   --repo https://kubernetes.github.io/ingress-nginx \
   --namespace ingress-nginx --create-namespace
   ``` 
-- prometheus 
+- prometheus
+  ```
+  helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+  helm repo update
+  helm install my-release prometheus-community/prometheus
+  ``` 
 
 ## III - service deployment
 
