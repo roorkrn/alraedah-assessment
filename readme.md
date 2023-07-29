@@ -29,7 +29,12 @@ First, in order to prepare the cluster you will need to install _helm_ (the k8s 
 
 Afterwards, you need to install and deploy the following services to your cluster: 
 
-- nginx ingress 
+- nginx ingress
+  ```
+  helm upgrade --install ingress-nginx ingress-nginx \
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --namespace ingress-nginx --create-namespace
+  ``` 
 - prometheus 
 
 ## III - service deployment
