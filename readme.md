@@ -75,6 +75,12 @@ all the resources mentioned above should exist on the same one namespace, and th
 ## IV - bonus
 
 - deploy jenkins (CICD tool) to your cluster using helm.
+  ```
+  helm repo add jenkins https://charts.jenkins.io
+  helm repo update
+  helm show values jenkins/jenkins > values.yaml # update the storage class and service based on requirements
+  helm install jenkins-release jenkins/jenkins -f values.yaml
+  ```
 - create a pipeline in jenkins that consists of two main stages : 
     - stage 1 : build the sample service docker image and pushes it to dockerhub.
     - stage 2 : deploy the sample service to the cluster with a rollout strategy.
