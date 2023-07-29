@@ -45,6 +45,11 @@ Afterwards, you need to install and deploy the following services to your cluste
 ## III - service deployment
 
 - create a dockerfile for the nodejs sample service in the root dir.
+  ```
+  cd sample-service
+  docker build -t roor007/assessment-krn-node .
+  docker push roor007/assessment-krn-node
+  ```
 - create a deployment file for the sample service with the following conditions :
     - set a soft limit and a hard limit on the service resources consumption.
     - deploy the service without root privileges.
@@ -52,8 +57,18 @@ Afterwards, you need to install and deploy the following services to your cluste
     - set the filesystem to be read only.
     - disallow privilege escalation.
     - livenessProbe and readinessProbe must be set on the deployment file (you can find the health endpoit by browsing to /sample-service/index.js).
+  ```
+  kubectl apply -f assessment-krn-k8s/namespace/assessment-krn.yaml
+  kubectl apply -f assessment-krn-k8s/deployments/assessment-krn-deployment.yaml
+  ```
 - create a service file for the sample service.
+  ```
+  kubectl apply -f assessment-krn-k8s/services/assessment-krn-svc.yaml
+  ```
 - create an ingress file that exposes the sample service to outside of the cluster.
+  ```
+  kubectl apply -f assessment-krn-k8s/services/assessment-krn-ingress.yaml
+  ```
 
 all the resources mentioned above should exist on the same one namespace, and the service should be running and accessible. 
 
