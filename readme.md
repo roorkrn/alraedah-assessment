@@ -79,7 +79,13 @@ all the resources mentioned above should exist on the same one namespace, and th
   helm repo add jenkins https://charts.jenkins.io
   helm repo update
   helm show values jenkins/jenkins > values.yaml # update the storage class and service based on requirements
-  helm install jenkins-release jenkins/jenkins -f values.yaml
+  helm install jenkins-release jenkins/jenkins -f values.yaml -n jenkins
+  # Get the admin password
+  kubectl exec --namespace jenkins -it svc/jenkins-release -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password && echo
+
+  #Get the Jenkins URL
+  echo http://127.0.0.1:8080
+  kubectl --namespace jenkins port-forward svc/jenkins-release 8080:8080
   ```
 - create a pipeline in jenkins that consists of two main stages : 
     - stage 1 : build the sample service docker image and pushes it to dockerhub.
